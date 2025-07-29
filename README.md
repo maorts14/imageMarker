@@ -81,6 +81,39 @@ The GUI provides:
 - Dropdown for visible watermark position
 - Real-time status updates
 
+## Batch Processing
+
+You can process an entire folder of images at once using the batch processor script. This is useful if you want to watermark many images automatically.
+
+### How to Use
+
+1. Place all the images you want to process in a single folder (e.g., `input_images/`).
+2. Choose or create an output folder (e.g., `output_images/`).
+3. Run the batch processor from the command line:
+
+```bash
+python batch_processor.py --input_dir input_images/ --output_dir output_images/
+```
+
+You can use all the same options as the single-image bot, for example:
+
+```bash
+python batch_processor.py --input_dir input_images/ --output_dir output_images/ \
+  --author "Jane Smith" \
+  --website "janesmith.com" \
+  --visible-text "© 2024 Jane Smith" \
+  --top-left --bottom-right --center \
+  --font-size 32 --opacity 80 \
+  --mark_postfix _protected
+```
+
+- Use `--top-left`, `--top-right`, `--bottom-left`, `--bottom-right`, and `--center` to select one or more visible watermark positions.
+- Use `--mark_postfix` to customize the text added to the output filenames (default: `_watermarked`).
+
+Each image in the input folder will be processed and saved to the output folder with the specified postfix added to the filename.
+
+See `python batch_processor.py --help` for all available options.
+
 ## Examples
 
 ### Example 1: Basic Watermarking
